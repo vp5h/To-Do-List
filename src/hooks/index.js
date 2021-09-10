@@ -1,18 +1,18 @@
 /* eslint-disable no-nested-ternary */
-import moment from 'moment';
 import { useState, useEffect } from 'react';
+import moment from 'moment';
 import { firebase } from '../firebase';
 import { collatedTasksExist } from '../helpers';
 
-export const useTask = (selectedProject) => {
-  const [task, setTask] = useState([]);
-  const [archived, setArchived] = useState([]);
+export const useTasks = (selectedProject) => {
+  const [tasks, setTasks] = useState([]);
+  const [archivedTasks, setArchivedTasks] = useState([]);
 
   useEffect(() => {
     let unsubscribe = firebase
-      .fireStore()
-      .collection('task')
-      .where('userId', '==', 'sdfasfsdfdfasfdsfasdas');
+      .firestore()
+      .collection('tasks')
+      .where('userid', '==', 'sdfasfsdfdfasfdsfa');
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -33,32 +33,32 @@ export const useTask = (selectedProject) => {
         ...task.data(),
       }));
 
-      setTask(
+      setTasks(
         selectedProject === 'NEXT_7'
           ? newTasks.filter(
               (task) =>
-                moment(task.data, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 &&
+                moment(task.date, 'DD-MM-YYYY').diff(moment(), 'days') <= 7 &&
                 task.archived !== true
             )
-          : newTasks.flter((task) => task.archived !== true)
+          : newTasks.filter((task) => task.archived !== true)
       );
-      setArchived(newTasks.filter((task) => task.archived === true));
+      setArchivedTasks(newTasks.filter((task) => task.archived !== false));
     });
 
     return () => unsubscribe();
   }, [selectedProject]);
 
-  return { task, archived };
+  return { tasks, archivedTasks };
 };
 
-// sdfasfsdfdfasfdsfasdas
 export const useProjects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    firebase.fireStore
+    firebase
+      .firestore()
       .collection('projects')
-      .where('userId', '==', 'sdfasfsdfdfasfdsfasdas')
+      .where('userId', '==', 'sdfasfsdfdfasfdsfa')
       .orderBy('projectId')
       .get()
       .then((snapshot) => {
