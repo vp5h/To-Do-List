@@ -9,7 +9,8 @@ export const IndividualProject = () => {
   const [setSelectedProject] = useSelectedProjectValue();
 
   const deleteProject = () => {
-    firebase.firestore
+    firebase
+      .firestore()
       .collection('projects')
       .doc(docId)
       .delete()
