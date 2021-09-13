@@ -29,7 +29,7 @@ export const Projects = ({ activeValue = null }) => {
           setSelectedProject(project.projectId);
         }}
       >
-        {JSON.stringify(projects)}
+        {/* {JSON.stringify(projects)} */}
       </li>
     ))
   );
