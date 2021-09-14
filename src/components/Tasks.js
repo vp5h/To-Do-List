@@ -6,7 +6,7 @@ import { Checkbox } from './Checkbox';
 export const Tasks = () => {
   const { tasks } = useTasks();
 
-  console.log(tasks);
+  // console.log(tasks);
 
   const projectName = '';
 
