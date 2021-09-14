@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import { useProjectValue, useSelectedProjectValue } from '../context';
+import { IndividualProject } from './IndividualProject';
 
 export const Projects = ({ activeValue = null }) => {
   const [active, setActive] = useState(activeValue);
@@ -29,7 +30,7 @@ export const Projects = ({ activeValue = null }) => {
           setSelectedProject(project.projectId);
         }}
       >
-        {/* {JSON.stringify(projects)} */}
+        <IndividualProject />
       </li>
     ))
   );
