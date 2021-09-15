@@ -213,8 +213,10 @@ header {
     padding-left: 10px;
     padding-right: 15px;
   }
-  &:hover .side__project-deleteP {
-    display: block;
+  &:hover .sidebar__project-delete {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   &__project {
@@ -227,76 +229,76 @@ header {
 
       svg {
         color: #cacaca;
-      }}
-      
-
-      &.active,
-      &:hover {
-        font-weight: bold;
-        background-color: white;
-      }
-
-      &:nth-child(1) {
-        .sidebar__dot {
-          color: #6accbc;
-        }
-      }
-      &:nth-child(2) {
-        .sidebar__dot {
-          color: #fad003;
-        }
-      }
-      &:nth-child(3) {
-        .sidebar__dot {
-          color: #ff8d85;
-        }
-      }
-      &:nth-child(4) {
-        .sidebar__dot {
-          color: #ff9932;
-        }
-      }
-      &:nth-child(5) {
-        .sidebar__dot {
-          color: #af38eb;
-        }
       }
     }
 
-    &__project {
-      @include va('left');
+    &.active,
+    &:hover {
+      font-weight: bold;
+      background-color: white;
     }
 
-    &__dot {
+    &:nth-child(1) {
+      .sidebar__dot {
+        color: #6accbc;
+      }
+    }
+    &:nth-child(2) {
+      .sidebar__dot {
+        color: #fad003;
+      }
+    }
+    &:nth-child(3) {
+      .sidebar__dot {
+        color: #ff8d85;
+      }
+    }
+    &:nth-child(4) {
+      .sidebar__dot {
+        color: #ff9932;
+      }
+    }
+    &:nth-child(5) {
+      .sidebar__dot {
+        color: #af38eb;
+      }
+    }
+  }
+
+  &__project {
+    @include va('left');
+  }
+
+  &__dot {
+    margin-right: 10px;
+    font-size: 30px;
+  }
+
+  &__middle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    border-bottom: $genric-border;
+    padding-left: 10px;
+    cursor: pointer;
+
+    span {
+      color: #00008a;
       margin-right: 10px;
-      font-size: 30px;
     }
 
-    &__middle {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      border-bottom: $genric-border;
-      padding-left: 10px;
-      cursor: pointer;
-
-      span {
-        color: #00008a;
-        margin-right: 10px;
-      }
-
-      svg.hidden-projects {
-        transform: rotate(-90deg);
-      }
-      h2 {
-        margin: 0;
-        color: #333;
-        font-size: 15px;
-        font-weight: bold;
-        padding-bottom: 20px;
-      }
+    svg.hidden-projects {
+      transform: rotate(-90deg);
     }
-  
+    h2 {
+      margin: 0;
+      color: #333;
+      font-size: 15px;
+      font-weight: bold;
+      padding-bottom: 20px;
+    }
+  }
+
   &__genric {
     li {
       padding: 10px 0 10px 10px;
@@ -323,4 +325,43 @@ header {
       }
     }
   }
+}
+
+// Dekte confirm btn
+
+.project-delete-modal {
+  position: relative;
+
+  &__inner {
+    @include box-overlay();
+    z-index: 99;
+    width: 200px;
+    padding: 10px;
+    top: 10px;
+    right: 0;
+    background-color: white;
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: normal;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    button {
+      @include btn('50px');
+    }
+
+    span {
+      @include cancel();
+      font-weight: normal;
+    }
+  }
+}
+
+
+//MAin Content
+.content{
+  display: grid;
 }
