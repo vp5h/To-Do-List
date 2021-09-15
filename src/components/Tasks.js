@@ -7,27 +7,31 @@ import { useSelectedProjectValue, useProjectValue } from '../context';
 import { collatedTasks } from '../constants';
 
 export const Tasks = () => {
-  const { tasks } = useTasks();
   const { selectedProject } = useSelectedProjectValue();
   const { projects } = useProjectValue();
+  const { tasks } = useTasks(selectedProject);
 
   let projectName = '';
-
-  if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
-    projectName = getTitle(projects, selectedProject).name;
-    console.log('projectName 1', projectName);
-  }
-
   if (collatedTasksExist(selectedProject) && selectedProject) {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name;
     console.log('projectName 2', projectName);
+  }
+
+  if (
+    projects &&
+    projects.length > 0 &&
+    selectedProject &&
+    !collatedTasksExist(selectedProject)
+  ) {
+    projectName = getTitle(projects, selectedProject).name;
+    console.log('projectName 1', projectName);
   }
 
   // console.log(tasks, 'task');
 
   useEffect(() => {
     document.title = `${projectName}: TodoList`;
-  }, []);
+  });
   return (
     <div className="tasks" data-testid="tasks">
       <h2 data-testid="project-name">{projectName}</h2>

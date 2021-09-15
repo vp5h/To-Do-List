@@ -9,6 +9,6 @@ export const collatedTasks = [
   },
   {
     key: 'NEXT_7',
-    name: 'next 7 Days',
+    name: 'Next 7 Days',
   },
 ];
