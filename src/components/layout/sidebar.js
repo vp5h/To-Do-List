@@ -58,7 +58,16 @@ export const Sidebar = () => {
           <span>Next 7 Days</span>
         </li>
       </ul>
-      <div className="sidebar__middle">
+      <div
+        className="sidebar__middle"
+        aria-label="Show/hide projects"
+        onClick={() => setShowProjects(!showProjects)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') setShowProjects(!showProjects);
+        }}
+        role="button"
+        tabIndex={0}
+      >
         <span>
           <FaChevronDown
             className={!showProjects ? 'hidden-projects' : undefined}
