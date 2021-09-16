@@ -2,9 +2,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { FaPizzaSlice } from 'react-icons/fa';
+import { AddTask } from '../AddTask';
 
 export const Header = ({ darkMode, setDarkMode }) => {
-  const [shouldShowMain, setshouldShowMain] = useState(false);
+  const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
 
   return (
@@ -15,7 +16,14 @@ export const Header = ({ darkMode, setDarkMode }) => {
         </div>
         <div className="settings">
           <ul>
-            <li className="quick-add-task-action" data-test-id="settings_add">
+            <li
+              className="settings_add"
+              data-test-id="quick-add-task-action"
+              onClick={() => {
+                setShowQuickAddTask(true);
+                setShouldShowMain(true);
+              }}
+            >
               +
             </li>
 
@@ -31,6 +39,13 @@ export const Header = ({ darkMode, setDarkMode }) => {
           </ul>
         </div>
       </nav>
+
+      <AddTask
+        showAddTaskMain={false}
+        shouldShowMain={shouldShowMain}
+        showQuickAddTask={showQuickAddTask}
+        setShowQuickAddTask={setShowQuickAddTask}
+      />
     </header>
   );
 };
