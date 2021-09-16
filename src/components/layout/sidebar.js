@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
@@ -75,7 +76,11 @@ export const Sidebar = () => {
         </span>
         <h2>Projects</h2>
       </div>
-      <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
+      <ul className="sidebar__projects" onClick={() => setActive('')}>
+        {showProjects && (
+          <Projects activeValue={active} setActiveValue={setActive} />
+        )}
+      </ul>
       {showProjects && <AddProject />}
     </div>
   );

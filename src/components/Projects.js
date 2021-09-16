@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useProjectValue, useSelectedProjectValue } from '../context';
 import { IndividualProject } from './IndividualProject';
 
-export const Projects = ({ activeValue = null }) => {
+export const Projects = ({ activeValue }) => {
   const [active, setActive] = useState(activeValue);
   const { setSelectedProject } = useSelectedProjectValue();
   const { projects } = useProjectValue();
@@ -17,7 +17,10 @@ export const Projects = ({ activeValue = null }) => {
         data-doc-id={project.docId}
         data-testid="project-action"
         className={
-          active === project.projectId
+          active === project.projectId &&
+          activeValue !== 'today' &&
+          activeValue !== 'next_7' &&
+          activeValue !== 'inbox'
             ? 'active sidebar__project'
             : 'sidebar__project'
         }
