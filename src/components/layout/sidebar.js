@@ -9,7 +9,7 @@ import {
   FaRegCalendarAlt,
 } from 'react-icons/fa';
 import { Projects } from '../Projects';
-import { useSelectedProjectValue, useProjectValue } from '../../context';
+import { useSelectedProjectValue } from '../../context';
 import { AddProject } from '../AddProjects';
 
 export const Sidebar = () => {

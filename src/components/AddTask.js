@@ -1,14 +1,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
-import {
-  FaRegListAlt,
-  FaRegCalenderAlt,
-  FaRegCalendarAlt,
-} from 'react-icons/fa';
+import { FaRegListAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import moment from 'moment';
 import { firebase } from '../firebase';
-import { ProjectContext, useSelectedProjectValue } from '../context';
+import { useSelectedProjectValue } from '../context';
 import { ProjectOverlay } from './ProjectOverlay';
 import { TaskDate } from './TaskDate';
 
