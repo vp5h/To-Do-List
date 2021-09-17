@@ -3,16 +3,18 @@ import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { firebase } from '../firebase';
 import { collatedTasksExist } from '../helpers';
+import { useAuth } from '../context/AuthContext';
 
 export const useTasks = (selectedProject) => {
   const [tasks, setTasks] = useState([]);
   const [archivedTasks, setArchivedTasks] = useState([]);
+  const { currentUser, logout } = useAuth();
 
   useEffect(() => {
     let unsubscribe = firebase
       .firestore()
       .collection('tasks')
-      .where('userId', '==', 'sdfasfsdfdfasfdsfa');
+      .where('userId', '==', currentUser.uid);
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -53,12 +55,13 @@ export const useTasks = (selectedProject) => {
 
 export const useProjects = () => {
   const [projects, setProjects] = useState([]);
+  const { currentUser, logout } = useAuth();
 
   useEffect(() => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'sdfasfsdfdfasfdsfa')
+      .where('userId', '==', currentUser.uid)
       .orderBy('projectId')
       .get()
       .then((snapshot) => {
@@ -71,7 +74,7 @@ export const useProjects = () => {
           setProjects(allProjects);
         }
       });
-  }, [projects]);
+  }, []);
 
   return { projects, setProjects };
 };

@@ -3,10 +3,12 @@
 import React, { useState } from 'react';
 import { FaPizzaSlice } from 'react-icons/fa';
 import { AddTask } from '../AddTask';
+import { useAuth } from '../../context/AuthContext';
 
 export const Header = ({ darkMode, setDarkMode }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
+  const { currentUser, logout } = useAuth();
 
   return (
     <header className="header" data-testid="header">

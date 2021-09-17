@@ -22,12 +22,13 @@ body {
   background-color: #fafafa;
   -webkit-font-smoothing: antialised;
   -moz-osx-font-smoothing: grayscale;
+
+  ul {
+    margin: 0;
+    padding: 0vh;
+  }
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
 //variables
 $genric-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px,
   rgba(0, 0, 0, 0.1) 0px 4px 11px;
