@@ -12,21 +12,21 @@ Custom Hooks for tasks and Projects
 
 ## Features
 
-    Projects acts as Collection of Tasks
+Projects acts as Collection of Tasks
 
-    Tasks have 3 categories based on Priorty 
+Tasks have 3 categories based on Priorty 
 
-    Task can be assigned to projects based on users Selection
+Task can be assigned to projects based on users Selection
 
-    Auth is implemented using FireBase Auth
+Auth is implemented using FireBase Auth
 
-    User Data, Tasks and Projects are stored in FireStore
+User Data, Tasks and Projects are stored in FireStore
 
-    Forgot Pass and Email Change are possible
+Forgot Pass and Email Change are possible
 
-    Responsive UI, Logo act as Switch for side Pane
+Responsive UI, Logo act as Switch for side Pane
 
-    Dark Mode
+Dark Mode
 
 ## Stack
 
@@ -34,6 +34,5 @@ Custom Hooks for tasks and Projects
 -FireBase Firestore
 -Sass
 -React Router
-
 
 
