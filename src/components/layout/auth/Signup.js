@@ -47,6 +47,7 @@ export default function Signup() {
         <div className="w-100" style={{ maxWidth: '400px' }}>
           <Card>
             <Card.Body>
+              <h2 className="text-center mb-4">To-do-List</h2>
               <h2 className="text-center mb-4">Sign Up</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
@@ -72,7 +73,12 @@ export default function Signup() {
                   />
                 </Form.Group>
                 <br />
-                <Button disabled={loading} className="w-100" type="submit">
+                <Button
+                  disabled={loading}
+                  className="w-100"
+                  type="submit"
+                  style={{ backgroundColor: '#db4c3f' }}
+                >
                   Sign Up
                 </Button>
               </Form>
@@ -80,7 +86,10 @@ export default function Signup() {
           </Card>
 
           <div className="w-100 text-center mt-2">
-            Already have an account? <Link to="/login">Log In</Link>
+            Already have an account?{' '}
+            <Link to="/login" style={{ color: '#db4c3f' }}>
+              Log In
+            </Link>
           </div>
         </div>
       </Container>

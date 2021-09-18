@@ -130,6 +130,27 @@ $genric-bg: #db4c3f;
 .darkmode {
   background-color: #282828;
 
+  .add-task__shallow,
+  .add-project {
+    @include no-select;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .add-task__plus,
+  .add-project__plus {
+    color: #dd4b39;
+    font-size: 18px;
+  }
+
+  .add-task__text,
+  .add-project__text {
+    display: inline-block;
+    color: #cacaca;
+    font-size: 14px;
+    margin-left: 15px;
+  }
+
   header {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
@@ -746,6 +767,7 @@ header {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
+      color: grey;
 
       span:first-of-type {
         margin-right: 10px;
@@ -774,6 +796,7 @@ header {
     padding: 0;
 
     div:nth-child(1) {
+      color: grey;
       width: 100%;
       padding: 10px;
     }
