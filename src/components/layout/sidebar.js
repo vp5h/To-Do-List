@@ -11,13 +11,19 @@ import {
 import { Projects } from '../Projects';
 import { useSelectedProjectValue } from '../../context';
 import { AddProject } from '../AddProjects';
+import { useSidebar } from '../../context/sidebar-context';
 
 export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue();
   const [active, setActive] = useState('inbox');
   const [showProjects, setShowProjects] = useState(true);
+  const { showSbar, setshowSbar } = useSidebar();
+
   return (
-    <div className="sidebar" data-testid="sidebar">
+    <div
+      className={!showSbar ? 'sidebar' : ' mobsidebar'}
+      data-testid="sidebar"
+    >
       <ul className="sidebar__genric">
         <li
           data-testid="inbox"
@@ -30,7 +36,7 @@ export const Sidebar = () => {
           <span>
             <FaInbox />
           </span>
-          <span>Inbox</span>
+          <span>Inbox </span>
         </li>
         <li
           data-testid="today"

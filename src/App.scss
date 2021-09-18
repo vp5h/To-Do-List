@@ -269,6 +269,115 @@ $genric-bg: #db4c3f;
       }
     }
   }
+  .mobsidebar {
+    @include no-select();
+    width: 266px;
+    height: calc(100vh);
+    padding-top: 74px;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-x: hidden;
+    border-right: $genric-border;
+    color: #fafafa;
+    background-color: #282828;
+    li {
+      padding-left: 10px;
+      padding-right: 15px;
+    }
+
+    svg {
+      color: #fafafa;
+    }
+
+    h2 {
+      color: #fafafa;
+    }
+    &__project {
+      @include va('left');
+    }
+
+    &__project {
+      padding: 5px;
+      cursor: pointer;
+
+      &-delete {
+        margin-left: auto;
+        display: none;
+        color: black;
+
+        svg {
+          color: #cacaca;
+        }
+      }
+
+      &.active,
+      &:hover {
+        font-weight: bold;
+        background-color: white;
+        color: black;
+      }
+
+      &:nth-child(1) {
+        .sidebar__dot {
+          color: #6accbc;
+        }
+      }
+      &:nth-child(2) {
+        .sidebar__dot {
+          color: #fad003;
+        }
+      }
+      &:nth-child(3) {
+        .sidebar__dot {
+          color: #ff8d85;
+        }
+      }
+      &:nth-child(4) {
+        .sidebar__dot {
+          color: #ff9932;
+        }
+      }
+      &:nth-child(5) {
+        .sidebar__dot {
+          color: #af38eb;
+        }
+      }
+    }
+
+    &__genric {
+      li {
+        padding: 10px 0 10px 10px;
+        list-style-type: none;
+        color: rgb(255, 255, 255);
+        display: flex;
+        cursor: pointer;
+        line-height: 1.5;
+        font-size: 15px;
+
+        span:first-of-type {
+          margin-right: 10px;
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+        &.active,
+        &:hover {
+          font-weight: bold;
+          color: #282828;
+          background-color: white;
+
+          svg {
+            width: 18px;
+            height: 18px;
+            color: #555;
+          }
+        }
+      }
+    }
+  }
+
   .tasks {
     color: #ffffff;
     background-color: #282828;
@@ -369,7 +478,263 @@ header {
 }
 
 // sidebar
+.mobsidebar {
+  @include no-select();
+  width: 266px;
+  height: calc(100vh);
+  padding-top: 74px;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-x: hidden;
+  border-right: $genric-border;
+  background-color: #fafafa;
 
+  li {
+    padding-left: 10px;
+    padding-right: 15px;
+  }
+  &:hover .sidebar__project-delete {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  &__project {
+    padding: 5px;
+    cursor: pointer;
+
+    &-delete {
+      margin-left: auto;
+      display: none;
+
+      svg {
+        color: #cacaca;
+      }
+    }
+
+    &.active,
+    &:hover {
+      font-weight: bold;
+      background-color: white;
+    }
+
+    &:nth-child(1) {
+      .sidebar__dot {
+        color: #6accbc;
+      }
+    }
+    &:nth-child(2) {
+      .sidebar__dot {
+        color: #fad003;
+      }
+    }
+    &:nth-child(3) {
+      .sidebar__dot {
+        color: #ff8d85;
+      }
+    }
+    &:nth-child(4) {
+      .sidebar__dot {
+        color: #ff9932;
+      }
+    }
+    &:nth-child(5) {
+      .sidebar__dot {
+        color: #af38eb;
+      }
+    }
+  }
+
+  &__project {
+    @include va('left');
+  }
+
+  &__dot {
+    margin-right: 10px;
+    font-size: 30px;
+  }
+
+  &__middle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    border-bottom: $genric-border;
+    padding-left: 10px;
+    cursor: pointer;
+
+    span {
+      color: #00008a;
+      margin-right: 10px;
+    }
+
+    svg.hidden-projects {
+      transform: rotate(-90deg);
+    }
+    h2 {
+      margin: 0;
+      color: #333;
+      font-size: 15px;
+      font-weight: bold;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__genric {
+    li {
+      padding: 10px 0 10px 10px;
+      list-style-type: none;
+      color: #333;
+      display: flex;
+      cursor: pointer;
+      line-height: 1.5;
+      font-size: 15px;
+
+      span:first-of-type {
+        margin-right: 10px;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          color: #555;
+        }
+      }
+      &.active,
+      &:hover {
+        font-weight: bold;
+        background-color: white;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    @include no-select();
+    width: 266px;
+    height: calc(100vh);
+    padding-top: 74px;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-x: hidden;
+    border-right: $genric-border;
+    background-color: #fafafa;
+
+    li {
+      padding-left: 10px;
+      padding-right: 15px;
+    }
+    &:hover .sidebar__project-delete {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    &__project {
+      padding: 5px;
+      cursor: pointer;
+
+      &-delete {
+        margin-left: auto;
+        display: none;
+
+        svg {
+          color: #cacaca;
+        }
+      }
+
+      &.active,
+      &:hover {
+        font-weight: bold;
+        background-color: white;
+      }
+
+      &:nth-child(1) {
+        .sidebar__dot {
+          color: #6accbc;
+        }
+      }
+      &:nth-child(2) {
+        .sidebar__dot {
+          color: #fad003;
+        }
+      }
+      &:nth-child(3) {
+        .sidebar__dot {
+          color: #ff8d85;
+        }
+      }
+      &:nth-child(4) {
+        .sidebar__dot {
+          color: #ff9932;
+        }
+      }
+      &:nth-child(5) {
+        .sidebar__dot {
+          color: #af38eb;
+        }
+      }
+    }
+
+    &__project {
+      @include va('left');
+    }
+
+    &__dot {
+      margin-right: 10px;
+      font-size: 30px;
+    }
+
+    &__middle {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      border-bottom: $genric-border;
+      padding-left: 10px;
+      cursor: pointer;
+
+      span {
+        color: #00008a;
+        margin-right: 10px;
+      }
+
+      svg.hidden-projects {
+        transform: rotate(-90deg);
+      }
+      h2 {
+        margin: 0;
+        color: #333;
+        font-size: 15px;
+        font-weight: bold;
+        padding-bottom: 20px;
+      }
+    }
+
+    &__genric {
+      li {
+        padding: 10px 0 10px 10px;
+        list-style-type: none;
+        color: #333;
+        display: flex;
+        cursor: pointer;
+        line-height: 1.5;
+        font-size: 15px;
+
+        span:first-of-type {
+          margin-right: 10px;
+
+          svg {
+            width: 18px;
+            height: 18px;
+            color: #555;
+          }
+        }
+        &.active,
+        &:hover {
+          font-weight: bold;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
 .sidebar {
   @include no-select();
   width: 266px;
