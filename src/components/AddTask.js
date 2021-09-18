@@ -36,6 +36,7 @@ export const AddTask = ({
     }
     return (
       task &&
+      task.trim().length !== 0 &&
       projectId &&
       firebase
         .firestore()
