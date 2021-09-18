@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
@@ -7,6 +8,7 @@ import { firebase } from '../firebase';
 import { useSelectedProjectValue } from '../context';
 import { ProjectOverlay } from './ProjectOverlay';
 import { TaskDate } from './TaskDate';
+import { useAuth } from '../context/AuthContext';
 
 export const AddTask = ({
   showAddTaskMain = true,
@@ -20,6 +22,7 @@ export const AddTask = ({
   const [showMain, setShowMain] = useState(ShouldshowMain);
   const [showProjectOverlay, setShowProjectOverlay] = useState(false);
   const [showTaskDate, setshowTaskDate] = useState(false);
+  const { currentUser, logout } = useAuth();
 
   const { selectedProject } = useSelectedProjectValue();
 
@@ -42,7 +45,7 @@ export const AddTask = ({
           projectId,
           task,
           date: collatedDate || taskDate,
-          userId: 'sdfasfsdfdfasfdsfa',
+          userId: currentUser.uid,
         })
         .then(() => {
           setTask('');

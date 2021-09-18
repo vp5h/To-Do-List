@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { firebase } from '../firebase';
 import { generatePushId } from '../helpers';
 import { useProjectValue } from '../context';
+import { useAuth } from '../context/AuthContext';
 
 export const AddProject = ({ shouldShow = false }) => {
   const [show, setShow] = useState(shouldShow);
@@ -10,6 +12,7 @@ export const AddProject = ({ shouldShow = false }) => {
 
   const projectId = generatePushId();
   const { projects, setProjects } = useProjectValue();
+  const { currentUser, logout } = useAuth();
 
   const addProject = () =>
     projectName &&
@@ -19,7 +22,7 @@ export const AddProject = ({ shouldShow = false }) => {
       .add({
         projectId,
         name: projectName,
-        userId: 'sdfasfsdfdfasfdsfa',
+        userId: currentUser.uid,
       })
       .then(() => {
         setProjects([...projects]);

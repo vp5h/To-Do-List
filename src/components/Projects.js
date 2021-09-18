@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import { useProjectValue, useSelectedProjectValue } from '../context';
 import { IndividualProject } from './IndividualProject';
+import { useSidebar } from '../context/sidebar-context';
 
 export const Projects = ({ activeValue }) => {
-  const [active, setActive] = useState(activeValue);
+  const [active, setActive] = useState('');
   const { setSelectedProject } = useSelectedProjectValue();
   const { projects } = useProjectValue();
-  console.log(projects);
+  const { showSbar, setshowSbar } = useSidebar();
+
   return (
     projects &&
     // eslint-disable-next-line array-callback-return
@@ -27,10 +29,12 @@ export const Projects = ({ activeValue }) => {
         onClick={() => {
           setActive(project.projectId);
           setSelectedProject(project.projectId);
+          setshowSbar(!showSbar);
         }}
         onKeyDown={() => {
           setActive(project.projectId);
           setSelectedProject(project.projectId);
+          setshowSbar(!showSbar);
         }}
       >
         <IndividualProject project={project} />

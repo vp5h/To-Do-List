@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -11,13 +12,19 @@ import {
 import { Projects } from '../Projects';
 import { useSelectedProjectValue } from '../../context';
 import { AddProject } from '../AddProjects';
+import { useSidebar } from '../../context/sidebar-context';
 
 export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue();
   const [active, setActive] = useState('inbox');
   const [showProjects, setShowProjects] = useState(true);
+  const { showSbar, setshowSbar } = useSidebar();
+
   return (
-    <div className="sidebar" data-testid="sidebar">
+    <div
+      className={!showSbar ? 'sidebar' : ' mobsidebar'}
+      data-testid="sidebar"
+    >
       <ul className="sidebar__genric">
         <li
           data-testid="inbox"
@@ -25,12 +32,13 @@ export const Sidebar = () => {
           onClick={() => {
             setActive('inbox');
             setSelectedProject('INBOX');
+            setshowSbar(!showSbar);
           }}
         >
           <span>
             <FaInbox />
           </span>
-          <span>Inbox</span>
+          <span>Inbox </span>
         </li>
         <li
           data-testid="today"
@@ -38,6 +46,7 @@ export const Sidebar = () => {
           onClick={() => {
             setActive('today');
             setSelectedProject('TODAY');
+            setshowSbar(!showSbar);
           }}
         >
           <span>
@@ -51,6 +60,7 @@ export const Sidebar = () => {
           onClick={() => {
             setActive('next_7');
             setSelectedProject('NEXT_7');
+            setshowSbar(!showSbar);
           }}
         >
           <span>

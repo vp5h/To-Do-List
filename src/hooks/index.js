@@ -1,18 +1,23 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable object-shorthand */
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-nested-ternary */
 import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { firebase } from '../firebase';
 import { collatedTasksExist } from '../helpers';
+import { useAuth } from '../context/AuthContext';
 
 export const useTasks = (selectedProject) => {
   const [tasks, setTasks] = useState([]);
   const [archivedTasks, setArchivedTasks] = useState([]);
+  const { currentUser, logout } = useAuth();
 
   useEffect(() => {
     let unsubscribe = firebase
       .firestore()
       .collection('tasks')
-      .where('userId', '==', 'sdfasfsdfdfasfdsfa');
+      .where('userId', '==', currentUser.uid);
 
     unsubscribe =
       selectedProject && !collatedTasksExist(selectedProject)
@@ -53,23 +58,29 @@ export const useTasks = (selectedProject) => {
 
 export const useProjects = () => {
   const [projects, setProjects] = useState([]);
+  const { currentUser, logout } = useAuth();
 
   useEffect(() => {
     firebase
       .firestore()
       .collection('projects')
-      .where('userId', '==', 'sdfasfsdfdfasfdsfa')
+      .where('userId', '==', currentUser.uid)
       .orderBy('projectId')
       .get()
       .then((snapshot) => {
         const allProjects = snapshot.docs.map((project) => ({
-          ...project.data(),
+          name: project.data().name,
+          userId: project.data().userId,
+          projectId: project.data().projectId,
           docId: project.id,
         }));
 
         if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects);
         }
+        console.log(allProjects);
+
+        return allProjects;
       });
   }, [projects]);
 

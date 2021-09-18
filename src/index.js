@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.scss';
-import { App } from './App';
+// import { App } from './App';
+// import Dashboard from './components/layout/auth/AuthApp';
+import AppAuth from './components/layout/auth/main';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppAuth />
   </React.StrictMode>,
   document.getElementById('root')
 );
