@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable object-shorthand */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-nested-ternary */
