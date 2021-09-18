@@ -47,6 +47,7 @@ export default function Login() {
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" ref={passwordRef} required />
                 </Form.Group>
+                <br />
                 <Button disabled={loading} className="w-100" type="submit">
                   Log In
                 </Button>
@@ -58,6 +59,11 @@ export default function Login() {
           </Card>
           <div className="w-100 text-center mt-2">
             Need an account? <Link to="/signup">Sign Up</Link>
+            <br />
+            Test account
+            <br />
+            praveshvyas.18@gmail.com <br />
+            qwerty
           </div>
         </div>
       </Container>

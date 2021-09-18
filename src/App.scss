@@ -288,6 +288,19 @@ header {
     color: white;
   }
 
+  p {
+    @include mq('900px') {
+      display: none;
+    }
+    // grid-area: 1/2;
+    // text-align: left;
+    /* padding-left: 15vw; */
+    padding-top: 1.3vh;
+    margin-left: 10vw;
+    grid-area: 1/1;
+    text-align: center;
+  }
+
   div {
     &.logo {
       padding-left: 8px;

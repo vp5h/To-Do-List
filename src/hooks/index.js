@@ -1,3 +1,5 @@
+/* eslint-disable object-shorthand */
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-nested-ternary */
 import { useState, useEffect } from 'react';
 import moment from 'moment';
@@ -66,15 +68,20 @@ export const useProjects = () => {
       .get()
       .then((snapshot) => {
         const allProjects = snapshot.docs.map((project) => ({
-          ...project.data(),
+          name: project.data().name,
+          userId: project.data().userId,
+          projectId: project.data().projectId,
           docId: project.id,
         }));
 
         if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects);
         }
+        console.log(allProjects);
+
+        return allProjects;
       });
-  }, []);
+  }, [projects]);
 
   return { projects, setProjects };
 };
