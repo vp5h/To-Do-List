@@ -16,7 +16,7 @@ import { useSidebar } from '../../context/sidebar-context';
 
 export const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue();
-  const [active, setActive] = useState('inbox');
+  const [active, setActive] = useState('today');
   const [showProjects, setShowProjects] = useState(true);
   const { showSbar, setshowSbar } = useSidebar();
 

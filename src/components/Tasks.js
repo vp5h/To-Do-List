@@ -15,7 +15,7 @@ export const Tasks = () => {
   let projectName = '';
   if (collatedTasksExist(selectedProject) && selectedProject) {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name;
-    console.log('projectName 2', projectName);
+    // console.log('projectName 2', projectName);
   }
 
   if (
@@ -25,7 +25,7 @@ export const Tasks = () => {
     !collatedTasksExist(selectedProject)
   ) {
     projectName = getTitle(projects, selectedProject).name;
-    console.log('projectName 1', projectName);
+    // console.log('projectName 1', projectName);
   }
 
   // console.log(tasks, 'task');
