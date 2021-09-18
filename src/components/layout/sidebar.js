@@ -32,6 +32,7 @@ export const Sidebar = () => {
           onClick={() => {
             setActive('inbox');
             setSelectedProject('INBOX');
+            setshowSbar(!showSbar);
           }}
         >
           <span>
@@ -45,6 +46,7 @@ export const Sidebar = () => {
           onClick={() => {
             setActive('today');
             setSelectedProject('TODAY');
+            setshowSbar(!showSbar);
           }}
         >
           <span>
@@ -58,6 +60,7 @@ export const Sidebar = () => {
           onClick={() => {
             setActive('next_7');
             setSelectedProject('NEXT_7');
+            setshowSbar(!showSbar);
           }}
         >
           <span>
