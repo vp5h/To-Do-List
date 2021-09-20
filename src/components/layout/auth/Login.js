@@ -51,7 +51,7 @@ export default function Login() {
                 <br />
                 <Button
                   disabled={loading}
-                  style={{ backgroundColor: '#db4c3f' }}
+                  style={{ backgroundColor: '#10b96a' }}
                   className="w-100"
                   type="submit"
                 >
@@ -59,7 +59,7 @@ export default function Login() {
                 </Button>
               </Form>
               <div className="w-100 text-center mt-3">
-                <Link to="/forgot-password" style={{ color: '#db4c3f' }}>
+                <Link to="/forgot-password" style={{ color: '#10b96a' }}>
                   Forgot Password?
                 </Link>
               </div>
@@ -67,7 +67,7 @@ export default function Login() {
           </Card>
           <div className="w-100 text-center mt-2">
             Need an account?{' '}
-            <Link to="/signup" style={{ color: '#db4c3f' }}>
+            <Link to="/signup" style={{ color: '#10b96a' }}>
               Sign Up
             </Link>
             <br />

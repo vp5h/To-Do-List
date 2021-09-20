@@ -77,7 +77,7 @@ export default function Signup() {
                   disabled={loading}
                   className="w-100"
                   type="submit"
-                  style={{ backgroundColor: '#db4c3f' }}
+                  style={{ backgroundColor: '#10b96a' }}
                 >
                   Sign Up
                 </Button>
@@ -87,7 +87,7 @@ export default function Signup() {
 
           <div className="w-100 text-center mt-2">
             Already have an account?{' '}
-            <Link to="/login" style={{ color: '#db4c3f' }}>
+            <Link to="/login" style={{ color: '#10b96a' }}>
               Log In
             </Link>
           </div>
