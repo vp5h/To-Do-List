@@ -4,8 +4,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useContext, useState } from 'react';
-import { FaPizzaSlice, FaSignOutAlt } from 'react-icons/fa';
-import { useHistory } from 'react-router-dom';
+import { FaPizzaSlice, FaSignOutAlt, FaEdit } from 'react-icons/fa';
+import { Link, useHistory } from 'react-router-dom';
 import { useSidebar } from '../../context/sidebar-context';
 import { AddTask } from '../AddTask';
 import { useAuth } from '../../context/AuthContext';
@@ -62,7 +62,11 @@ export const Header = ({ darkMode, setDarkMode }) => {
             >
               <FaPizzaSlice />
             </li>
-
+            <Link to="/update-profile">
+              <li className="settings_add" data-test-id="quick-add-task-action">
+                <FaEdit />
+              </li>
+            </Link>
             <li
               className="settings_add"
               data-test-id="quick-add-task-action"
