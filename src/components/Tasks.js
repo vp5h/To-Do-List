@@ -10,7 +10,7 @@ import { AddTask } from './AddTask';
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
   const { projects } = useProjectValue();
-  const { tasks } = useTasks(selectedProject);
+  const { tasks, archivedTasks } = useTasks(selectedProject);
 
   let projectName = '';
   if (collatedTasksExist(selectedProject) && selectedProject) {
@@ -36,16 +36,34 @@ export const Tasks = () => {
   return (
     <div className="tasks" data-testid="tasks">
       <h2 data-testid="project-name">{projectName}</h2>
-
       <ul className="tasks__list">
         {tasks.map((task) => (
           <li key={`${task.id}`}>
-            <Checkbox id={task.id} taskdec={task.task} />
-            <span>{task.task}</span>
+            <Checkbox id={task.id} arc={task.archived} taskdec={task.task} />
+            {task.archived ? (
+              <span>
+                <strike>{task.task}</strike>
+              </span>
+            ) : (
+              <span> {task.task}</span>
+            )}
           </li>
         ))}
       </ul>
       <AddTask />
+      <br /> <br />
+      <h2 data-testid="project-name">Archived</h2>
+      <ul className="tasks__list">
+        {archivedTasks.map((task) => (
+          <li key={`${task.id}`}>
+            <Checkbox id={task.id} arc={task.archived} taskdec={task.task} />
+
+            <span>
+              <strike>{task.task}</strike>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

@@ -2,10 +2,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { firebase } from '../firebase';
 
-export const Checkbox = ({ id }) => {
+export const Checkbox = ({ id, taskdec, arc }) => {
   const archiveTask = () => {
     firebase.firestore().collection('tasks').doc(id).update({
-      archived: true,
+      archived: !arc,
     });
   };
   return (
@@ -14,7 +14,11 @@ export const Checkbox = ({ id }) => {
       data-testid="checkbox-action"
       onClick={() => archiveTask()}
     >
-      <span className="checkbox" />
+      {!arc ? (
+        <span className="checkbox" />
+      ) : (
+        <span className="checkbox" style={{ backgroundColor: 'Grey' }} />
+      )}
     </div>
   );
 };
