@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { firebase } from '../firebase';
 
-export const Checkbox = ({ id, taskdec, arc }) => {
+export const Checkbox = ({ id, arc }) => {
   const archiveTask = () => {
     firebase.firestore().collection('tasks').doc(id).update({
       archived: !arc,

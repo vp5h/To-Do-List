@@ -163,6 +163,8 @@ $genric-bg: #10b96a;
   }
   .sidebar {
     @include no-select();
+    vertical-align: top;
+    top: 0;
     width: 266px;
     height: calc(100vh);
     padding-top: 74px;
@@ -271,10 +273,12 @@ $genric-bg: #10b96a;
   }
   .mobsidebar {
     @include no-select();
+    top: 0;
     width: 266px;
     height: calc(100vh);
     padding-top: 74px;
     position: fixed;
+    vertical-align: top;
     overflow-x: hidden;
     overflow-x: hidden;
     border-right: $genric-border;
@@ -479,6 +483,8 @@ header {
 // sidebar
 .mobsidebar {
   @include no-select();
+  top: 0;
+  vertical-align: top;
   width: 266px;
   height: calc(100vh);
   padding-top: 74px;
@@ -738,6 +744,8 @@ header {
   @include no-select();
   width: 266px;
   height: calc(100vh);
+  vertical-align: top;
+  top: 0;
   padding-top: 74px;
   position: fixed;
   overflow-x: hidden;
