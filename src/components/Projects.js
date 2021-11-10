@@ -22,6 +22,7 @@ export const Projects = ({ activeValue }) => {
           active === project.projectId &&
           activeValue !== 'today' &&
           activeValue !== 'next_7' &&
+          activeValue !== 'archived' &&
           activeValue !== 'inbox'
             ? 'active sidebar__project'
             : 'sidebar__project'

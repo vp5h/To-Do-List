@@ -33,37 +33,58 @@ export const Tasks = () => {
   useEffect(() => {
     document.title = `${projectName}: TodoList`;
   });
+
+  /* {(() => {
+        if (projectName === 'Archived') {
+          return <div>hi</div>;
+        }
+      })()} */
+
   return (
     <div className="tasks" data-testid="tasks">
-      <h2 data-testid="project-name">{projectName}</h2>
-      <ul className="tasks__list">
-        {tasks.map((task) => (
-          <li key={`${task.id}`}>
-            <Checkbox id={task.id} arc={task.archived} taskdec={task.task} />
-            {task.archived ? (
-              <span>
-                <strike>{task.task}</strike>
-              </span>
-            ) : (
-              <span> {task.task}</span>
-            )}
-          </li>
-        ))}
-      </ul>
-      <AddTask />
-      <br /> <br />
-      <h2 data-testid="project-name">Archived</h2>
-      <ul className="tasks__list">
-        {archivedTasks.map((task) => (
-          <li key={`${task.id}`}>
-            <Checkbox id={task.id} arc={task.archived} taskdec={task.task} />
+      {projectName !== 'Archived' ? (
+        <>
+          <h2 data-testid="project-name">{projectName}</h2>
+          <ul className="tasks__list">
+            {tasks.map((task) => (
+              <li key={`${task.id}`}>
+                <Checkbox
+                  id={task.id}
+                  arc={task.archived}
+                  taskdec={task.task}
+                />
+                {task.archived ? (
+                  <span>
+                    <strike>{task.task}</strike>
+                  </span>
+                ) : (
+                  <span> {task.task}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <AddTask />
+        </>
+      ) : (
+        <>
+          <h2 data-testid="project-name">Archived</h2>
+          <ul className="tasks__list">
+            {archivedTasks.map((task) => (
+              <li key={`${task.id}`}>
+                <Checkbox
+                  id={task.id}
+                  arc={task.archived}
+                  taskdec={task.task}
+                />
 
-            <span>
-              <strike>{task.task}</strike>
-            </span>
-          </li>
-        ))}
-      </ul>
+                <span>
+                  <strike>{task.task}</strike>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 };

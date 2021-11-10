@@ -68,6 +68,20 @@ export const Sidebar = () => {
           </span>
           <span>Next 7 Days</span>
         </li>
+        <li
+          data-testid="archived"
+          className={active === 'archived' ? 'active' : undefined}
+          onClick={() => {
+            setActive('archived');
+            setSelectedProject('Archived');
+            setshowSbar(!showSbar);
+          }}
+        >
+          <span>
+            <FaRegCalendarAlt />
+          </span>
+          <span>Archived</span>
+        </li>
       </ul>
       <div
         className="sidebar__middle"
