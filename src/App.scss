@@ -944,6 +944,9 @@ header {
   .add-task {
     margin-top: 20px;
   }
+  .task_del {
+    min-width: 35vw;
+  }
 
   &__list li {
     display: flex;
@@ -1171,6 +1174,13 @@ header {
       color: grey;
       width: 100%;
       padding: 10px;
+    }
+  }
+}
+@include mq('900px') {
+  .tasks {
+    .task_del {
+      min-width: 55vw;
     }
   }
 }

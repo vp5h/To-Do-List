@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable array-callback-return */
 import React, { useEffect } from 'react';
+
 import { useTasks } from '../hooks';
 import { Checkbox } from './Checkbox';
 import { getTitle, getCollatedTitle, collatedTasksExist } from '../helpers';
@@ -47,19 +50,19 @@ export const Tasks = () => {
           <h2 data-testid="project-name">{projectName}</h2>
           <ul className="tasks__list">
             {tasks.map((task) => (
-              <li key={`${task.id}`}>
+              <li key={`${task.id}`} style={{ display: 'flex' }}>
                 <Checkbox
                   id={task.id}
                   arc={task.archived}
                   taskdec={task.task}
                 />
-                {task.archived ? (
+                {/* {task.archived ? (
                   <span>
                     <strike>{task.task}</strike>
                   </span>
                 ) : (
                   <span> {task.task}</span>
-                )}
+                )} */}
               </li>
             ))}
           </ul>
@@ -76,10 +79,9 @@ export const Tasks = () => {
                   arc={task.archived}
                   taskdec={task.task}
                 />
-
-                <span>
+                {/* <span>
                   <strike>{task.task}</strike>
-                </span>
+                </span> */}
               </li>
             ))}
           </ul>
